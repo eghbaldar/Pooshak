@@ -1,0 +1,240 @@
+﻿<%@ Master Language="VB" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+
+    Dim objConnection As SqlConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("ConnectionString").ToString())
+    Dim objCmd As New SqlCommand
+    Dim objDataReader As SqlDataReader
+    Dim Matn_Monasebat As String
+    Dim Payam As String
+    Dim Rabet As New clsUtility
+    
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs)
+        '================================================================================
+        'نمايش عکس و متن مربوط به مناسبت ها
+        objConnection.Open()
+        objCmd.Connection = objConnection
+        objCmd.CommandText = "SELECT TOP 1 ID, PhotoName, Matn FROM tblMonasebat ORDER BY ID DESC"
+        objDataReader = objCmd.ExecuteReader
+        If objDataReader.Read = True Then
+            Matn_Monasebat = objDataReader("Matn").ToString
+        End If
+        objCmd.Dispose()
+        objDataReader.Close()
+        objConnection.Close()
+        '================================================================================
+        'نمایش پیام روز    
+        Payam = Rabet.ExcuteQ("SELECT TOP 1 Payam FROM tblPayam ORDER BY NewID()")
+        '================================================================================
+        lblToday.Text = Rabet.Conv(Today)
+    End Sub
+
+    Protected Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs)
+        Response.Write("ali")
+    End Sub
+</script>
+
+<html>
+<head>
+<title>Pooshakkaraj.ir اتحاديه صنف پوشاک فروشان کرج</title>
+<style type="text/css">
+<!--
+.style2 {font-size: 12px}
+.style3 {font-family: Tahoma; font-size: 5px; }
+.style4 {font-family: Tahoma; font-size: 12px; font-weight: bold; }
+a:link {
+	text-decoration: none;
+	color: #003366;
+}
+a:visited {
+	text-decoration: none;
+	color: #006699;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+body {
+	background-image: url(images/background.jpg);
+}
+.style6 {font-family: Tahoma; font-size: 13px; }
+-->
+</style>
+<script type="text/javascript" language="JavaScript1.2" src="stmenu.js"></script>
+</head>
+
+<body style="text-align: center">
+<table width="929" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="230"><img src="images/001.jpg" width="230" height="228"></td>
+    <td width="392" background="images/002.jpg"><table width="348" height="198" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="height: 49px"><p>&nbsp;</p>
+          </td>
+      </tr>
+      <tr>
+        <td><marquee class="style4" direction="right"><%=Payam%></marquee></td>
+      </tr>
+    </table></td>
+    <td width="307"><img src="images/003.jpg" width="307" height="228"></td>
+  </tr>
+</table>
+<table width="929" height="40" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td bgcolor="#eeeeee"><table width="929" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+<script type="text/javascript" language="JavaScript1.2">
+stm_bm(["menu55be",600,"","blank.gif",0,"","",0,0,0,0,50,1,0,0,"","",0,0,1,0,"default","hand",""],this);
+stm_bp("p0",[0,4,0,0,1,4,0,7,100,"",-2,"",-2,90,1,1,"#999999","transparent","",3,0,0,"#FFFFFF"]);
+stm_ai("p0i0",[0,"کميسيون ها","","",-1,-1,0,"komision.aspx","_self","","","","",0,0,0,"arrow_r.gif","arrow_r.gif",7,7,0,1,1,"#FFFFFF",1,"#FFFFFF",1,"xp3.gif","xp4.gif",3,3,1,1,"#CCCCCC","#999999","#333333","#000000","bold 8pt tahoma","bold 8pt Tahoma",0,0],140,30);
+stm_bpx("p1","p0",[1,4,0,0,1,4,0,0]);
+stm_aix("p1i0","p0i0",[0,"رسيدگي به شکايات","","",-1,-1,0,"komisiyon-shekayat.aspx","_self","","","","",0,0,0,"","",0,0,0,1,1,"#FFFFFF",1,"#FFFFFF",1,"xp3.gif","xp4.gif",3,3,1,1,"#CCCCCC","#999999","#333333","#000000","bold 8pt Tahoma"],138,0);
+stm_aix("p1i1","p1i0",[0,"کميسيون آموزش","","",-1,-1,0,"komisiyon-amoozesh.aspx"],138,0);
+stm_aix("p1i2","p1i0",[0,"کميسيون فني","","",-1,-1,0,"komisiyon-fani.aspx"],138,0);
+stm_aix("p1i3","p1i0",[0,"حل اختلاف","","",-1,-1,0,"komisiyon-haleekhtelaf.aspx"],138,0);
+stm_aix("p1i4","p1i0",[0,"بازرسي ","","",-1,-1,0,"komisiyon-bazresi.aspx"],138,0);
+stm_ep();
+stm_aix("p0i1","p1i0",[0,"بخش امور اعضا","","",-1,-1,0,"","_self","","","","",0,0,0,"arrow_r.gif","arrow_r.gif",7,7],140,30);
+stm_bpx("p2","p1",[]);
+stm_aix("p2i0","p1i0",[0,"مدارک","","",-1,-1,0,"aza-madarek.aspx","_self","","","","",0,0,0,"","",0,0,0,2],138,0);
+stm_aix("p2i1","p2i0",[0,"ديدن وضعيت ","","",-1,-1,0,"aza-didanevaziyat.aspx"],138,0);
+stm_aix("p2i2","p2i0",[0,"درخواست مجوز حراج","","",-1,-1,0,"aza-darkhastmojavez.aspx"],138,0);
+stm_aix("p2i3","p2i0",[0,"تمديد و تعويض پروانه","","",-1,-1,0,"aza-tamdidparvane.aspx"],138,0);
+stm_aix("p2i4","p2i2",[0,"درخواست صدور پروانه "],138,0);
+stm_aix("p2i5","p2i0",[0,"فروش فوق العاده","","",-1,-1,0,"aza-forushfogholade.aspx"],138,0);
+stm_ep();
+stm_aix("p0i2","p1i0",[0,"  آمار پروانه هاي صادره  ","","",-1,-1,0,"amar.aspx"],138,30);
+stm_aix("p0i3","p0i1",[0,"قانون نظام صنفي"],135,30);
+stm_bpx("p3","p1",[]);
+stm_aix("p3i0","p2i0",[0,"تعاريف","","",-1,-1,0,"ghanoon-taarif.aspx"],135,0);
+stm_aix("p3i1","p2i0",[0,"فرد صنفي","","",-1,-1,0,"ghanoon-fardesenfi.aspx"],135,0);
+stm_aix("p3i2","p2i0",[0,"اتحاديه ها","","",-1,-1,0,"ghanoon-etehadiye.aspx"],135,0);
+stm_aix("p3i3","p2i0",[0,"مجمع امور صنفي","","",-1,-1,0,"ghanoon-majma.aspx"],135,0);
+stm_aix("p3i4","p2i0",[0,"شوراي اصناف","","",-1,-1,0,"ghanoon-shora.aspx"],135,0);
+stm_aix("p3i5","p2i0",[0,"کميسيون نظارت","","",-1,-1,0,"ghanoon-nezarat.aspx"],135,0);
+stm_aix("p3i6","p2i0",[0,"هيات عالي نظارت","","",-1,-1,0,"ghanoon-heyateali.aspx"],135,0);
+stm_aix("p3i7","p2i0",[0,"تخلفات و جريمه ها","","",-1,-1,0,"ghanoon-takhalof.aspx"],135,0);
+stm_aix("p3i8","p2i0",[0,"ساير مقررات","","",-1,-1,0,"ghanoon-sayer.aspx"],135,0);
+stm_ep();
+stm_aix("p0i4","p1i0",[0,"اعضاي هيئت رئيسه","","",-1,-1,0,"heyatraeise.aspx"],128,30);
+stm_aix("p0i5","p1i0",[0,"اخبار","","",-1,-1,0,"AllNews.aspx"],115,30);
+stm_aix("p0i6","p2i0",[0,"صفحه اصلي     ","","",-1,-1,0,"Default.aspx","_self","","","","",0,0,0,"arrow_r.gif","arrow_r.gif",7,7],123,30);
+stm_bpx("p4","p1",[]);
+stm_aix("p4i0","p1i0",[0,"بسیج اتحاديه","","",-1,-1,0,"Basij.aspx"],125,0);
+stm_aix("p4i1","p1i0",[0,"عملکرد اتحاديه","","",-1,-1,0,"amalkard.aspx"],125,0);
+stm_aix("p4i2","p1i0",[0,"سايتهاي مرتبط","","",-1,-1,0,"links.aspx"],125,0);
+stm_aix("p4i3","p1i0",[0,"فعاليتهاي ورزشي","","",-1,-1,0,"sport.aspx"],125,0);
+stm_aix("p4i4","p1i0",[0,"صندوق قرض الحسنه","","",-1,-1,0,"sandoogh.aspx"],125,0);
+stm_aix("p4i5","p1i0",[0,"ارتباط با ما","","",-1,-1,0,"Contact.aspx"],125,30);
+stm_ep();
+stm_ep();
+stm_em();
+//-->
+</script>
+</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<table width="929" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td width="223" align="center" valign="top">
+    <table border="0" cellpadding="0" cellspacing="0" background="images/bg-small-kadr.jpg">
+      <tr>
+        <td><img src="images/up2ee.jpg" width="214" height="15" /></td>
+      </tr>
+      <tr>
+        <td>
+            <asp:Label ID="lblToday" runat="server"></asp:Label>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="images/bg-small-kadr-down.jpg" width="214" height="5" /></td>
+      </tr>
+    </table>    
+    <br />
+    <table border="0" cellpadding="0" cellspacing="0" background="images/bg-small-kadr.jpg">
+      <tr>
+        <td><img src="images/up2ee.jpg" width="214" height="15" /></td>
+      </tr>
+      <tr>
+        <td>
+<!-- Google CSE Search Box Begins  -->
+<form action="http://pooshakkaraj.ir/search.aspx" id="cse-search-box">
+  <input type="hidden" name="cx" value="018364098256072545151:tgntltmrfjg" style="width: 106px" />
+  <input type="hidden" name="cof" value="FORID:11" style="width: 109px" />
+  <input type="text" name="q" style="width: 146px" /><br />
+    <img src="Images/google.jpg" />
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<input type="submit" name="sa" value="Search" />
+</form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en"></script>
+<!-- Google CSE Search Box Ends -->
+        </td>
+      </tr>
+      <tr>
+        <td><img src="images/bg-small-kadr-down.jpg" width="214" height="5" /></td>
+      </tr>
+    </table>
+      <br />
+      <table border="0" align="center" cellpadding="0" cellspacing="0" background="images/bg-small-kadr.jpg">
+        <tr>
+          <td><img src="images/agahi.jpg" width="214" height="36" /></td>
+        </tr>
+        <tr>
+          <td><div align="center">
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="200" height="150">
+              <param name="movie" value="swf/amini.swf">
+              <param name="quality" value="high">
+              <embed src="swf/amini.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="200" height="150"></embed>
+            </object>
+          </div></td>
+        </tr>
+        <tr>
+          <td><img src="images/bg-small-kadr-down.jpg" width="214" height="5" /></td>
+        </tr>
+      </table></td>
+    <td width="38">&nbsp;</td>
+    <td width="632" style="vertical-align: top; text-align: right; font-size: 11pt;" class="style3" dir="rtl">
+        <form id="myform" runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </form>
+    </td>
+    <td width="36"><br />
+      <br></td>
+  </tr>
+</table>
+<table width="929" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF">&nbsp;</td>
+  </tr>
+</table>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="929">
+        <tr>
+            <td style="height: 19px; text-align: center">
+                <span style="color: #000066">
+                &nbsp;<span style="font-size: 9pt; font-family: Tahoma"><a href="Default.aspx"><span>صفحه اصلی</span></a><span>&nbsp; |&nbsp;
+                    </span><a href="amalkard.aspx"><span>عملکرد اتحادیه</span></a><span>&nbsp; |&nbsp; </span><a href="links.aspx"><span>
+                            سایتهای مرتبط</span></a><span>&nbsp; | &nbsp; </span>
+                    <a href="contact.aspx"><span>ارتباط با اتحادیه</span></a><span>&nbsp; |&nbsp; </span><a href="AllNews.aspx"><span>
+                            اخبار اتحادیه</span></a><span>&nbsp; |&nbsp; </span>
+                    <a href="sandoogh.aspx"><span>صندوق قرض الحسنه</span></a><span>&nbsp; |&nbsp; </span><a href="komision.aspx"><span>
+                            کمیسیون ها</span></a></span></span></td>
+        </tr>
+    </table>
+    <span style="font-size: 8pt; font-family: Tahoma"><a href="http://www.atropatgan.net">
+        <span style="color: #ffffff">Atropatgan.net</span></a> © 2008 &nbsp;طراحی و اجراء
+        : <a href="http://www.atropatgan.net"><span style="color: #000000">شرکت آتروپاتگان کاسپین</span></a>
+        <br />
+        <span style="font-size: 7pt; color: #ccffff">کلیه حقوق این وب سایت برای اتحادیه صنف
+            پوشاک فروشان کرج محفوظ است</span></span>
+</body>
+</html>

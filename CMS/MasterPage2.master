@@ -1,0 +1,87 @@
+﻿<%@ Master Language="VB" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+   
+</script>
+
+<html>
+<head>
+        <link type="text/css" href="tablecloth.css" rel="stylesheet" />
+
+<title>   </title>
+<style type="text/css">
+<!--
+
+body {
+	background-image: url(../images/background.jpg);
+}
+-->
+</style>
+
+</head>
+
+<body>
+<form id="form1" runat="server">
+<table width="929" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="230"><img src="../images/001.jpg" width="230" height="228"></td>
+    <td width="392" background="../images/002.jpg"><table width="348" height="198" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="163"><p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          </td>
+      </tr>
+      <tr>
+        <td class="style4"><div align="center"></div></td>
+      </tr>
+    </table></td>
+    <td width="307"><img src="../images/003.jpg" width="307" height="228"></td>
+  </tr>
+</table>
+
+<table width="929" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#B9D1E3" dir="rtl">
+  <tr>
+    <td width="223" align="center" valign="top" style="vertical-align: top; text-align: right">
+        <br />
+        <table align="right" style="text-align: center">
+            <tr>
+                <td style="width: 100px">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/Admin/home.gif" /><br />
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx">صفحه اصلی</asp:HyperLink></td>
+            </tr>
+            <tr>
+                <td style="width: 100px">
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/Admin/config_site.gif" /><br />
+                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/CMS/Default.aspx">بخش مدیدیت</asp:HyperLink></td>
+            </tr>
+            <tr>
+                <td style="width: 100px">
+                    <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/Admin/logout.gif" /><br />
+                    <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/CMS/Logout.aspx">خروج</asp:HyperLink></td>
+            </tr>
+        </table>
+    </td><td width="487" align="center" dir="rtl">
+          <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+          </asp:ContentPlaceHolder>
+          &nbsp;</td>
+    <td width="219" align="center">&nbsp;&nbsp;
+    </td>
+  </tr>
+</table>
+<table width="929" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#B9D1E3">
+  <tr>
+    <td bgcolor="#B9D1E3">&nbsp;</td>
+  </tr>
+</table>
+<table width="929" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
